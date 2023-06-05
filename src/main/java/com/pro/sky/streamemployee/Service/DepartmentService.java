@@ -1,11 +1,11 @@
-package com.pro.sky.streamemployee;
+package com.pro.sky.streamemployee.Service;
 
+import com.pro.sky.streamemployee.Employee.Employee;
+import com.pro.sky.streamemployee.Exseption.EmployeeNotFoundExseption;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 import java.util.stream.Collectors;
-
-import static com.pro.sky.streamemployee.EmployeeBook.employeeList;
 
 @Service
 public class DepartmentService {

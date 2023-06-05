@@ -1,4 +1,6 @@
-package com.pro.sky.streamemployee;
+package com.pro.sky.streamemployee.Service;
+
+import com.pro.sky.streamemployee.Employee.Employee;
 
 import java.util.List;
 

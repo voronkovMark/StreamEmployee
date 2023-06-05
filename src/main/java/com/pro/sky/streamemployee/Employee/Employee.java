@@ -1,4 +1,4 @@
-package com.pro.sky.streamemployee;
+package com.pro.sky.streamemployee.Employee;
 
 import java.util.Objects;
 

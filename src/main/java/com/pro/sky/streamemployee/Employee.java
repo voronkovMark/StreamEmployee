@@ -6,15 +6,14 @@ public class Employee {
 
     private String firstName;
     private String lastName;
-    private int department;
-    private double salary;
+    private final int department;
+    private final double salary;
 
 
-
-    public Employee(String firstName, String lastName, int deparment, double salary) {
+    public Employee(String firstName, String lastName, int department, double salary) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.department = deparment;
+        this.department = department;
         this.salary = salary;
     }
 
@@ -63,6 +62,9 @@ public class Employee {
                 ", lastName='" + lastName + '\'' +
                 '}';
     }
+
+
+
 }
 
 

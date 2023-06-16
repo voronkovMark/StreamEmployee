@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class EmployeeController {
     public Employee addEmployee(@RequestParam String firstName,
                                 String lastName,
                                 int department,
-                                double salary) {
+                                double salary) throws IOException {
         return service.add(firstName, lastName, department, salary);
     }
 

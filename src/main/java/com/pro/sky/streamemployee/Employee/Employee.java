@@ -1,5 +1,7 @@
 package com.pro.sky.streamemployee.Employee;
 
+import org.springframework.util.StringUtils;
+
 import java.util.Objects;
 
 public class Employee {
@@ -11,8 +13,8 @@ public class Employee {
 
 
     public Employee(String firstName, String lastName, int department, double salary) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.firstName = StringUtils.capitalize(firstName) ;
+        this.lastName = StringUtils.capitalize(lastName);
         this.department = department;
         this.salary = salary;
     }

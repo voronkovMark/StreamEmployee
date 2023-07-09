@@ -4,23 +4,23 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.BAD_REQUEST)
-public class IOExseption extends RuntimeException{
-    public IOExseption() {
+public class RenameException extends RuntimeException{
+    public RenameException() {
     }
 
-    public IOExseption(String message) {
+    public RenameException(String message) {
         super(message);
     }
 
-    public IOExseption(String message, Throwable cause) {
+    public RenameException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public IOExseption(Throwable cause) {
+    public RenameException(Throwable cause) {
         super(cause);
     }
 
-    public IOExseption(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+    public RenameException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
 }

@@ -1,7 +1,7 @@
 package com.pro.sky.streamemployee.Controller;
 
-import com.pro.sky.streamemployee.Service.DepartmentService;
 import com.pro.sky.streamemployee.Employee.Employee;
+import com.pro.sky.streamemployee.Service.DepartmentService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,16 +20,21 @@ public class DepartmentController {
 
 
     @GetMapping("/max-salary")
-    public Employee getEmployeeWithMaxSalary(@RequestParam("departmentID") int department) {
-        return departmentService.getEmployeeWithMaxSalary(department);
+    public Double getEmployeeMaxSalary(@RequestParam("departmentID") int department) {
+        return departmentService.getEmployeeMaxSalary(department);
     }
 
     @GetMapping("/min-salary")
-    public Employee getEmployeeWithMinSalary(@RequestParam("departmentID") int department) {
-        return departmentService.getEmployeeWithMinSalary(department);
+    public Double getEmployeeMinSalary(@RequestParam("departmentID") int department) {
+        return departmentService.getEmployeeMinSalary(department);
     }
 
-    @GetMapping( value = "/all",params = "departmentID")
+    @GetMapping("/sum")
+    public Double getSalarySumByDepartment(@RequestParam("departmentID") int department) {
+        return departmentService.getEmployeeSalarySum(department);
+    }
+
+    @GetMapping(value = "/all", params = "departmentID")
     public List<Employee> getAll(@RequestParam("departmentID") int department) {
         return departmentService.getAll(department);
     }
@@ -38,12 +43,6 @@ public class DepartmentController {
     public List<Employee> getAll() {
         return departmentService.getAll();
     }
-
-
-//    @GetMapping
-//    public List<Object> all() {
-//        return Collections.singletonList(departmentService.all());
-//    }
 
 
 }

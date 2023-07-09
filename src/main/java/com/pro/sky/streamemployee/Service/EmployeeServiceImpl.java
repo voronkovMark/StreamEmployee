@@ -2,13 +2,12 @@ package com.pro.sky.streamemployee.Service;
 
 import com.pro.sky.streamemployee.Employee.Employee;
 import com.pro.sky.streamemployee.Employee.EmployeeBook;
-import com.pro.sky.streamemployee.Exseption.AllreadyAddedExseption;
-import com.pro.sky.streamemployee.Exseption.EmployeeNotFoundExseption;
-import com.pro.sky.streamemployee.Exseption.IOExseption;
+import com.pro.sky.streamemployee.Exseption.AllreadyAddedException;
+import com.pro.sky.streamemployee.Exseption.EmployeeNotFoundException;
+import com.pro.sky.streamemployee.Exseption.RenameException;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 
@@ -22,41 +21,41 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 
     @Override
-    public Employee add(String firstName, String lastName, int department, double salary) throws IOException {
+    public Employee add(String firstName, String lastName, int department, double salary) throws AllreadyAddedException {
         Employee employee = new Employee(firstName, lastName, department, salary);
-        inputValidate(firstName,lastName);
+        inputValidate(firstName, lastName);
 
         if (employeeList.contains(employee)) {
-                throw new AllreadyAddedExseption();
-            }
+            throw new AllreadyAddedException();
+        }
 
         employeeList.add(employee);
         return employee;
     }
 
     @Override
-    public Employee find(String firstName, String lastName, int department, double salary) throws IOExseption {
+    public Employee find(String firstName, String lastName, int department, double salary) throws EmployeeNotFoundException {
         Employee employee = new Employee(firstName, lastName, department, salary);
-        inputValidate(firstName,lastName);
+        inputValidate(firstName, lastName);
 
         if (employeeList.contains(employee)) {
-                return employee;
-            }
+            return employee;
+        }
 
-            throw new EmployeeNotFoundExseption();
+        throw new EmployeeNotFoundException();
 
     }
 
     @Override
-    public Employee remove(String firstName, String lastName, int department, double salary) throws IOExseption{
+    public Employee remove(String firstName, String lastName, int department, double salary) throws EmployeeNotFoundException {
         Employee employee = new Employee(firstName, lastName, department, salary);
-        inputValidate(firstName,lastName);
-         if (employeeList.contains(employee)) {
-                employeeList.remove(employee);
-                return employee;
-            }
+        inputValidate(firstName, lastName);
+        if (employeeList.contains(employee)) {
+            employeeList.remove(employee);
+            return employee;
+        }
 
-            throw new EmployeeNotFoundExseption();
+        throw new EmployeeNotFoundException();
 
     }
 
@@ -67,9 +66,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         return Collections.unmodifiableList(EmployeeBook.employeeList);
     }
 
-    public void inputValidate(String firstName, String lastName){
-        if(!(StringUtils.isAlpha(firstName)&&StringUtils.isAlpha(lastName))){
-            throw new IOExseption();
+    public void inputValidate(String firstName, String lastName) {
+        if (!(StringUtils.isAlpha(firstName) && StringUtils.isAlpha(lastName))) {
+            throw new RenameException();
         }
     }
 

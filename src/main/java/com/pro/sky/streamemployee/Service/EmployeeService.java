@@ -8,7 +8,8 @@ import java.util.List;
 public interface EmployeeService {
 
 
-    public Employee add(String firstName, String lastName, int department, double salary) throws IOException;
+    public Employee add(String firstName, String lastName, int department, double salary)
+            throws IOException;
 
     public Employee find(String firstName, String lastName, int department, double salary);
 
